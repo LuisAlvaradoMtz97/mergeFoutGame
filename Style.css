@@ -1,0 +1,54 @@
+
+table {
+    width: 120px;
+    border-collapse: collapse;
+}
+
+td {
+    background-color: rgb(96, 96, 255);
+    padding: 10px;
+    text-align: center;
+    width: 45px !important;
+    height: 45px !important;
+}
+
+#tableGame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-game {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.value-X {
+    background-color: red;
+}
+
+.value-O {
+    background-color: yellow;
+}
+
+.value-empty {
+    background-color: white;
+}
+
+.disable {
+    pointer-events: none;
+    background-color: #ebebeb;
+}
+
+.highlighted-column {
+
+    background-color: rgb(96, 96, 255, .8);
+    border: 0px;
+    animation: normal 0.5s;
+    cursor: pointer;
+}
