@@ -121,8 +121,7 @@
                 const rows = table.rows;
                 const cols = rows[0].cells;
                 const cellIndex = event.target.cellIndex;
-                let validChangePlayer = false;
-
+                
                 for (let rowSelected = rows.length - 1; rowSelected >= 0; rowSelected--) {
                     let exit = false
                     for (let colSelected = cols.length - 1; colSelected >= 0; colSelected--) {
@@ -132,7 +131,6 @@
 
                         if (isEmpty && colSelected == cellIndex) {
                             exit = true
-                            validChangePlayer = true
                             addTab(rowSelected, colSelected);
                             break;
                         }
@@ -177,7 +175,6 @@
                 const rows = table.rows;
 
                 const tab = document.createElement('div');
-                //Se crea el evento click para que no cuando se presione el circulo aun tenga funcionalidad
                 tab.addEventListener('click', (event) => {
                     const cell = event.target.closest('td');
                     if (cell) {
@@ -210,24 +207,12 @@
             };
 
             const resetGame = () => {
-
-                const cells = document.querySelectorAll('.cell');
-                cells.forEach(cell => {
-                    cell.textContent = '';
-                });
-                const elementPlayer = document.getElementById('currentPlayer');
-                elementPlayer.textContent = listPlayers[0].name;
-                history.length = 0; // Limpiar el historial
-
+                currentPlayer = listPlayers[0];
                 const table = document.getElementById('tableMain');
                 if(table) {
                     table.remove();
                 }
-                //table.classList.remove('disable');
                 playerWin = false;
-
-
-                reloadDescription()
                 generateTableGame()
             };
             const generateDescription = () => {
